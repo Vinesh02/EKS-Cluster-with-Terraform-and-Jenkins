@@ -50,6 +50,15 @@ pipeline {
                 }
             }
         }
+        stage('Terraform refresh'){
+            steps{
+                script{
+                    dir('EKS'){
+                        sh 'terraform refresh'
+                    }
+                }
+            }
+        }
         stage('Creating/Destroying an EKS Cluster'){
             steps{
                 script{
